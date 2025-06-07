@@ -26,7 +26,7 @@ function Login() {
   }
 
   try {
-    const url = 'http://localhost:8081/auth/login';
+    const url = 'https://expense-tracker-api-beige.vercel.app/auth/login';
 
     const { data: result } = await axios.post(url, loginInfo, {
       headers: {
