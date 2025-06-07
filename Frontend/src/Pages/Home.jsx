@@ -50,7 +50,7 @@ function Home() {
     }
     try {
       const response = await axios.post(
-        'http://localhost:8081/expenses',
+        'https://expense-tracker-api-beige.vercel.app/expenses',
         data,
         {
           headers: {
@@ -88,7 +88,7 @@ function Home() {
   }
 
     try {
-      const response = await axios.get('http://localhost:8081/expenses', {
+      const response = await axios.get('https://expense-tracker-api-beige.vercel.app/expenses', {
         headers: {
           Authorization: `Bearer ${token}`,  
           'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function Home() {
   }
 
   try {
-    const response = await axios.delete(`http://localhost:8081/expenses/${expenseId}`, {
+    const response = await axios.delete(`https://expense-tracker-api-beige.vercel.app/expenses/${expenseId}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
