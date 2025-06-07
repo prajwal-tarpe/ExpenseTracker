@@ -25,7 +25,7 @@ function Signup() {
   }
 
   try {
-    const url = 'http://localhost:8081/auth/signup';
+    const url = 'https://expense-tracker-api-beige.vercel.app/auth/signup';
     const { data: result } = await axios.post(url, signupInfo);
 
     const { success, message, error } = result;
