@@ -61,17 +61,14 @@ function Home() {
       );
 
       handleSuccess(response.data?.message);
-      console.log('--result', response.data.data);
       setExpenses(response.data.data);
     } catch (error) {
       if (error.response) {
-        // Server responded with a status other than 2xx
         handleError(error.response.data.message || 'Unauthorized');
         localStorage.removeItem('token');
         localStorage.removeItem('loggedInUser');
         navigate('/login');
       } else {
-        // Network or other error
         handleError('Failed to add expense');
         console.error(error);
     }
@@ -94,20 +91,16 @@ function Home() {
           'Content-Type': 'application/json',
         }
       });
-      console.log("Expenses fetched:", response.data.data);
       setExpenses(response.data.data);
       setFilteredExpense(response.data.data);
 
     } catch (error) {
-      // Axios error handling
       if (error.response) {
-        // Server responded with a status outside 2xx
         handleError(error.response.data.message || 'Session expired');
         localStorage.removeItem('token');
         localStorage.removeItem('loggedInUser');
         navigate('/login');
       } else {
-        // Other errors (network, etc)
         handleError('Failed to fetch expenses');
         console.error(error);
       }
@@ -131,8 +124,7 @@ function Home() {
     });
 
     handleSuccess(response.data?.message);
-    console.log('--result', response.data.data);
-    setExpenses(response.data.data); // Update the state with the remaining expenses
+    setExpenses(response.data.data);
   } catch (error) {
     if (error.response) {
       handleError(error.response.data.message || 'Unauthorized');
@@ -143,7 +135,6 @@ function Home() {
       }
     } else {
       handleError('Failed to delete expense');
-      console.error(error);
     }
   }
   };
