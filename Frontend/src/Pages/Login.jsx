@@ -48,8 +48,6 @@ function Login() {
     } else {
       handleError('Login failed. Please try again.');
     }
-
-    console.log(result);
   } catch (err) {
     handleError('Incorrect email or Password');
   }
