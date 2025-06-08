@@ -40,8 +40,6 @@ function Signup() {
     } else {
       handleError('Signup failed. Please try again.');
     }
-
-    console.log(result);
   } catch (err) {
     handleError(err.response?.data?.message || err.message);
   }
